@@ -1,0 +1,1 @@
+﻿* simple abstraction over DB
