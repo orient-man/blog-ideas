@@ -4,16 +4,10 @@ open System
 open IntegrationTests.DbAccess
 open IntegrationTests.DbMigrations
 
-type Database private () =
-    static let init () =
-        let db = new DatabaseFixture()
-        // FluentMigrations...
-        Migrator.StartMigrations(db.ConnectionString)
-        db
+let private init (db: DatabaseFixture) =
+    Migrator.StartMigrations(db.ConnectionString)
+    //db.ExecuteNonQuery "CREATE TABLE ..."
 
-    static let instance = lazy (init ())
-    static member Instance = instance.Value
-    static member DropIfExist() =
-        if instance.IsValueCreated then (instance.Value :> IDisposable).Dispose()
+let Database = DatabaseInstance(init)
 
 let execute query = query |> Connection.execute Database.Instance.GetConnection

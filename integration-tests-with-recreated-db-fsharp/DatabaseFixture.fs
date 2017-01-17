@@ -43,3 +43,15 @@ type DatabaseFixture() =
             (catalog, catalog)
             ||> sprintf "ALTER DATABASE [%s] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE %s"
             |> executeNonQuery "master"
+
+type DatabaseInstance (init) =
+    let create () =
+        let db = new DatabaseFixture()
+        db |> init
+        db
+
+    let instance = lazy (create ())
+
+    member __.Instance = instance.Value
+    member __.DropIfExist() =
+        if instance.IsValueCreated then (instance.Value :> IDisposable).Dispose()
