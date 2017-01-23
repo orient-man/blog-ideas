@@ -1,0 +1,7 @@
+framework: net461
+source https://nuget.org/api/v2
+
+nuget FAKE = 4.38.1
+nuget FSharpLint.Fake = 0.4.11
+nuget NUnit = 2.6.4
+nuget NUnit.Runners = 2.6.4
