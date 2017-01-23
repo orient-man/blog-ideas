@@ -14,5 +14,5 @@
 ## How
 
 * interceptor which "generates" contract implementation on-the-fly
-* on time proxy generation cost at registration (injected code to AppDomain - this code always stays there - be careful)
+* one time proxy generation cost at registration (injected code to AppDomain - this code always stays there - be careful)
 * small footprint (relativly to WCF) - 0.2ms per call

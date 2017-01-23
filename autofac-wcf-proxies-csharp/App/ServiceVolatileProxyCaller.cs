@@ -4,7 +4,7 @@ using Autofac.Wcf.Extensions
 
 namespace Company.App.Composition
 {
-    // TODO: ServiceVolatileProxy provided by common company lib
+    // wraps WCF proxy by company lib
     public class ServiceVolatileProxyCaller : IServiceProxyCaller<IServiceContract>
     {
         public void CallMethod(Expression<Action<IServiceContract>> action)
