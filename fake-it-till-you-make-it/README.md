@@ -4,7 +4,7 @@
 * NuGet packages generation
 * calling PowerShell (tokenization example)
 * TeamCity integration: build number, test results, dotCover
-* TeamCity is dumb ie. only calls build.cmd
+* TeamCity is dumb ie. only calls build.cmd (["any CI doing anything other than calling scripts in your project's repo sucks"](https://twitter.com/ashic/status/795956927993958401))
 * running NUnit tests (both unit & integration tests, handling categories)
 * failed test raported properly in TeamCity
 * FSharpLint
