@@ -2,7 +2,7 @@
 
 ## Why
 
-* WCF calls all over the place -> untestable code (explicit use of new WcfProxy<IContract>)
+* WCF calls all over the place -> untestable code (explicit use of ugly "new WcfProxy<IContract>(o => o.Call(...))")
 * smaller facades over existing oversized contract
 
 ## Why not
