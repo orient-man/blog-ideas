@@ -1,0 +1,8 @@
+framework: netstandard1.6
+source https://nuget.org/api/v2
+
+nuget FAKE
+nuget Newtonsoft.Json
+nuget NUnit
+nuget NUnit.Runners
+nuget Unquote

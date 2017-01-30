@@ -1,0 +1,14 @@
+.fake/
+packages/
+obj/
+bin/
+build/
+deploy/
+test/
+*.user
+*.suo
+*.ncrunchsolution
+*.ncrunchproject
+.vs/
+**/frontend/node_modules/
+**/frontend/coverage/
