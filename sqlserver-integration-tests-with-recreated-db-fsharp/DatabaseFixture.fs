@@ -3,6 +3,7 @@ namespace IntegrationTests
 open System
 open System.Data.Common
 open System.Data.SqlClient
+open System.Transactions
 
 type DatabaseFixture() =
     let config = ["<machine name>", "localhost"] |> Map.ofList
@@ -37,6 +38,7 @@ type DatabaseFixture() =
     member __.ConnectionString = connectionString
     member __.GetConnection() = getConnection connectionString
     member __.ExecuteNonQuery(query) = executeNonQuery catalog query
+    member __.AutoRollback() = new TransactionScope() :> IDisposable
 
     interface IDisposable with
         member __.Dispose() =
