@@ -1,0 +1,7 @@
+FSharp.Core
+FSharp.Interop.Dynamic
+log4net
+Microsoft.AspNet.SignalR.SelfHost
+Microsoft.AspNet.WebApi.OwinSelfHost
+Microsoft.Owin.StaticFiles
+Newtonsoft.Json
