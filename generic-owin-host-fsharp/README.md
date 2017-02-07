@@ -1,5 +1,13 @@
 ﻿# Generic OWIN host in F#
 
+Features:
+
+* WebApi + SignalR
+* static files (your SPA application)
+* windows authentication
+* basic authorization
+* basic DI for WebApi controllers
+
 Usage:
 
     new OwinHost(
@@ -14,4 +22,4 @@ Usage:
             new MyApiController(...) :> obj
         | _ -> null
 
-    let isAuthorized _ = true
+    let isAuthorized user = true
