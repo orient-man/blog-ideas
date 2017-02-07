@@ -5,7 +5,7 @@ Features:
 * WebApi + SignalR
 * static files (your SPA application)
 * windows authentication
-* basic authorization
+* basic authorization + attributes for WebApi/SignalR
 * basic DI for WebApi controllers
 
 Usage:
