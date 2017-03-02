@@ -1,6 +1,4 @@
-﻿namespace App.Curve
-
-open System
+﻿open System
 
 // points in time
 type Tree<'point> =
@@ -107,8 +105,10 @@ module CurveF =
 let date d = let start = DateTime(2017, 01, 01) in start.AddDays(float d)
 let rates = [(date 5, "c"); (date 9, "e"); (date 7, "d"); (date 1, "a"); (date 3, "b")]
 let curve = Curve(rates)
+let curveF = rates |> CurveF.create
 
 curve.ToSeq() |> Seq.fold (+) "" // "abcde"
+curveF |> CurveF.toSeq |> Seq.fold (+) "" // "abcde"
 curve.TryGetNext(date 4) // "c"
 curve.TryGetNext(date 5) // "c"
 curve.TryGetPrev(date 6) // "c"
@@ -120,3 +120,4 @@ Curve((dayC.AddMinutes -10., "x") :: rates).TryGetAt(dayC) // "c"
 Curve((dayC.AddMinutes 10., "x") :: rates).TryGetAt(dayC) // null
 
 curve.Shift(fun (d, r) -> (d.AddDays 1., r.ToUpper())).ToSeq() |> Seq.fold (+) "" // "ABCDE"
+curveF |> CurveF.shift (fun (d, r) -> (d.AddDays 1., r.ToUpper())) |> CurveF.toSeq |> Seq.fold (+) "" // "ABCDE"
